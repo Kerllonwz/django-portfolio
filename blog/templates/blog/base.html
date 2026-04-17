@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+        header { background: #2c3e50; color: white; padding: 1rem 2rem; }
+        header a { color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold; }
+        nav { background: #34495e; padding: 0.5rem 2rem; }
+        nav a { color: #ecf0f1; text-decoration: none; margin-right: 1rem; }
+        nav a:hover { text-decoration: underline; }
+        .container { display: flex; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; gap: 2rem; }
+        main { flex: 1; }
+        footer { background: #2c3e50; color: #ecf0f1; text-align: center; padding: 1rem; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/">Blog EBAC</a>
+    </header>
+    <nav>
+        <a href="/">Início</a>
+    </nav>
+    <div class="container">
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        {% block sidebar %}
+            {% include "blog/sidebar.html" %}
+        {% endblock %}
+    </div>
+    <footer>
+        <p>&copy; 2024 Blog EBAC - Curso de Django</p>
+    </footer>
+</body>
+</html>

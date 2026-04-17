@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ post.title }} - Blog EBAC{% endblock %}
+
+{% block content %}
+    <article style="background: white; border-radius: 6px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+        <h1 style="margin-top: 0; color: #2c3e50;">{{ post.title }}</h1>
+
+        <div style="color: #888; font-size: 0.85rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
+            Publicado em: {{ post.created_at|date:"d \d\e F \d\e Y" }}
+            {% if post.published %}
+                <span style="background: #27ae60; color: white; border-radius: 3px; padding: 0.1rem 0.5rem; margin-left: 0.5rem; font-size: 0.75rem;">Publicado</span>
+            {% else %}
+                <span style="background: #e74c3c; color: white; border-radius: 3px; padding: 0.1rem 0.5rem; margin-left: 0.5rem; font-size: 0.75rem;">Rascunho</span>
+            {% endif %}
+        </div>
+
+        <div style="color: #444; line-height: 1.8; font-size: 1.05rem;">
+            {{ post.content|linebreaks }}
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee;">
+            <a href="/" style="color: #3498db; text-decoration: none;">&larr; Voltar para o início</a>
+        </div>
+    </article>
+{% endblock %}

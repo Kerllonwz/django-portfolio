@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Início - Blog EBAC{% endblock %}
+
+{% block content %}
+    <h2 style="color: #2c3e50; margin-top: 0;">Últimas Publicações</h2>
+
+    {% if posts %}
+        {% for post in posts %}
+            {% include "blog/post.html" with post=post %}
+        {% endfor %}
+    {% else %}
+        <div style="background: white; border-radius: 6px; padding: 2rem; text-align: center; color: #888; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <p>Nenhuma publicação encontrada.</p>
+        </div>
+    {% endif %}
+{% endblock %}

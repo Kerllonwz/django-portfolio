@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog.views import home
+from blog.views import home, sync_view, async_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home', home, name='home'),
+    path('sync/', sync_view, name='sync'),
+    path('async/', async_view, name='async'),
 ]

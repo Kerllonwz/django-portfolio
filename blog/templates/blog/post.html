@@ -1,0 +1,25 @@
+<article style="background: white; border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">
+        <a href="/post/{{ post.id }}/" style="color: #2c3e50; text-decoration: none;">
+            {{ post.title }}
+        </a>
+    </h3>
+
+    <div style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">
+        Publicado em: {{ post.created_at|date:"d/m/Y" }}
+        {% if post.published %}
+            <span style="background: #27ae60; color: white; border-radius: 3px; padding: 0.1rem 0.5rem; margin-left: 0.5rem; font-size: 0.75rem;">Publicado</span>
+        {% else %}
+            <span style="background: #e74c3c; color: white; border-radius: 3px; padding: 0.1rem 0.5rem; margin-left: 0.5rem; font-size: 0.75rem;">Rascunho</span>
+        {% endif %}
+    </div>
+
+    <p style="color: #555; line-height: 1.6;">
+        {{ post.content|truncatewords:30 }}
+    </p>
+
+    <a href="/post/{{ post.id }}/"
+       style="display: inline-block; background: #3498db; color: white; padding: 0.4rem 1rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem;">
+        Ler mais &rarr;
+    </a>
+</article>
